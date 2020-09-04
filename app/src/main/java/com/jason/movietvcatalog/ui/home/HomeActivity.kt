@@ -14,9 +14,9 @@ import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
 
-class HomeActivity : AppCompatActivity(){
+class HomeActivity : AppCompatActivity() {
 
-    private lateinit var navController : NavController
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +33,6 @@ class HomeActivity : AppCompatActivity(){
         toggle.syncState()
 
         navController = Navigation.findNavController(this, R.id.main_fragment)
-        //val host = supportFragmentManager.findFragmentById(R.id.main_fragment) as NavHostFragment? ?: return
-        //navController = host.navController
 
         val appBarConfiguration = AppBarConfiguration(
             setOf(
@@ -45,9 +43,9 @@ class HomeActivity : AppCompatActivity(){
             drawer_layout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
-        NavigationUI.setupWithNavController(nav_view,navController)
-        NavigationUI.setupWithNavController (toolbar, navController, drawer_layout)
-        NavigationUI.setupActionBarWithNavController(this,navController, drawer_layout)
+        NavigationUI.setupWithNavController(nav_view, navController)
+        NavigationUI.setupWithNavController(toolbar, navController, drawer_layout)
+        NavigationUI.setupActionBarWithNavController(this, navController, drawer_layout)
     }
 
     override fun onBackPressed() {
@@ -57,6 +55,7 @@ class HomeActivity : AppCompatActivity(){
             super.onBackPressed()
         }
     }
+
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(navController, drawer_layout) || super.onSupportNavigateUp()
     }
