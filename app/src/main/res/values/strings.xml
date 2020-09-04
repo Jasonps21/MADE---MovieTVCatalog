@@ -17,7 +17,6 @@
     <string name="favorite_title">Favorite Movie</string>
     <string name="menu_movie">Movie</string>
     <string name="menu_tv_show">TV Show</string>
-    <string name="menu_discussions">Discussions</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="menu_people">People</string>
