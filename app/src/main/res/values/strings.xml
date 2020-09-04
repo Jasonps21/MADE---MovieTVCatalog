@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Movie Catalog</string>
+    <string name="movie">Movie</string>
+    <string name="tvshow">TV Show</string>
+    <string name="title_activity_scrolling"> </string>
+    <string name="play">play</string>
+    <string name="shadow">shadow</string>
+    <string name="backdrop">backdrop</string>
+    <string name="genre">Genre</string>
+    <string name="duration">Duration</string>
+    <string name="release_year">Release Year</string>
+    <string name="status">Status</string>
+    <string name="synopsis">Synopsis</string>
+    <string name="text_dialog">Anda berhasil menambah Favorite</string>
+    <string name="head_title_dialog">Action</string>
+    <string name="menu_favorite">Favorite</string>
+    <string name="favorite_title">Favorite Movie</string>
+    <string name="menu_movie">Movie</string>
+    <string name="menu_tv_show">TV Show</string>
+    <string name="menu_discussions">Discussions</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="menu_people">People</string>
+    <string name="no_data">Empty Data</string>
+    <string name="pencarian">Pencarian</string>
+</resources>
