@@ -28,7 +28,11 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -54,6 +58,10 @@ dependencies {
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "junit:junit:$junitVersion"
     testImplementation "androidx.arch.core:core-testing:$archLifecycleVersion"
+
+    // ANIMATION
     implementation "com.airbnb.android:lottie:$lottie_version"
-    implementation "com.facebook.shimmer:shimmer:$shimmer_version"
+
+    // MEMORY CHECK
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'
 }
