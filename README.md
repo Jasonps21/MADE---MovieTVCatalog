@@ -1,1 +1,2 @@
-[![jasonps21](https://app.circleci.com/pipelines/github/Jasonps21/MADE---MovieTVCatalog.svg?style=svg)](https://app.circleci.com/pipelines/github/Jasonps21/MADE---MovieTVCatalog)
+# Movie TV Catalog
+[![Jasonps21](https://circleci.com/gh/Jasonps21/MADE---MovieTVCatalog.svg?style=shield)](https://circleci.com/gh/Jasonps21/MADE---MovieTVCatalog)
