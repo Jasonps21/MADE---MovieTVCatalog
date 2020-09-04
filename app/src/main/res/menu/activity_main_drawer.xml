@@ -13,16 +13,12 @@
             android:icon="@drawable/ic_baseline_live_tv_24"
             android:title="@string/menu_tv_show" />
         <item
-            android:id="@+id/nav_people"
-            android:icon="@drawable/ic_baseline_people_24"
-            android:title="@string/menu_people" />
-        <item
             android:id="@+id/nav_favorite"
             android:icon="@drawable/ic_baseline_favorite_24"
             android:title="@string/menu_favorite" />
         <item
-            android:id="@+id/nav_discussion"
-            android:icon="@drawable/ic_baseline_chat_24"
-            android:title="@string/menu_discussions" />
+            android:id="@+id/nav_people"
+            android:icon="@drawable/ic_baseline_people_24"
+            android:title="@string/menu_people" />
     </group>
 </menu>

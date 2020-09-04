@@ -31,11 +31,6 @@
         android:name="com.jason.movietvcatalog.ui.favorite.FavoriteActivity"
         android:label="Favorite" />
     <activity
-        android:id="@+id/nav_discussion"
-        android:name="com.jason.movietvcatalog.discussions.DiscussionActivity"
-        app:moduleName="discussions"
-        android:label="Discussions" />
-    <activity
         android:id="@+id/nav_people"
         android:name="com.jason.movietvcatalog.people.PeopleActivity"
         app:moduleName="people"

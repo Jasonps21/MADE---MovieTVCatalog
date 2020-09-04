@@ -1,5 +1,4 @@
 include ':people'
-include ':discussions'
 include ':core'
 include ':app'
 rootProject.name = "MovieTVCatalog"

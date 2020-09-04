@@ -32,7 +32,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    dynamicFeatures = [':discussions', ':people']
+    dynamicFeatures = [':people']
 }
 
 dependencies {
