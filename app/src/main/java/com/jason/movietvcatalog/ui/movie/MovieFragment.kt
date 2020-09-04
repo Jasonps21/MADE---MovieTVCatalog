@@ -15,7 +15,7 @@ import com.jason.movietvcatalog.R
 import com.jason.movietvcatalog.`interface`.OnItemClickCallback
 import com.jason.movietvcatalog.core.data.source.Resource
 import com.jason.movietvcatalog.core.domain.model.Movie
-import com.jason.movietvcatalog.core.ui.MovieAdapter
+import com.jason.movietvcatalog.ui.adapter.MovieAdapter
 import com.jason.movietvcatalog.ui.detail.DetailMovieActivity
 import kotlinx.android.synthetic.main.fragment_movie.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -46,13 +46,13 @@ class MovieFragment : Fragment() {
             viewModel.getMovies.observe(viewLifecycleOwner, Observer { movies ->
                 if (movies != null) {
                     when (movies) {
-                        is Resource.Loading -> progress_bar.visibility = View.VISIBLE
-                        is Resource.Success -> {
+                        is Resource.Loading<*> -> progress_bar.visibility = View.VISIBLE
+                        is Resource.Success<*> -> {
                             progress_bar.visibility = View.GONE
                             movieAdapter.setData(movies.data)
                             movieAdapter.notifyDataSetChanged()
                         }
-                        is Resource.Error -> {
+                        is Resource.Error<*> -> {
                             progress_bar.visibility = View.GONE
                             Toast.makeText(context, "Terjadi kesalahan", Toast.LENGTH_SHORT).show()
                         }

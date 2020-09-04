@@ -1,11 +1,11 @@
 package com.jason.movietvcatalog.core.data.source.remote
 
 import android.util.Log
+import com.jason.movietvcatalog.core.BuildConfig
 import com.jason.movietvcatalog.core.data.source.remote.response.ActorResponse
 import com.jason.movietvcatalog.core.data.source.remote.response.MovieResponse
-import com.jason.movietvcatalog.core.data.source.remote.response.TvResponse
-import com.jason.movietvcatalog.core.BuildConfig
 import com.jason.movietvcatalog.core.data.source.remote.response.PeopleResponse
+import com.jason.movietvcatalog.core.data.source.remote.response.TvResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -24,7 +24,7 @@ class RemoteDataSource(private val apiService: ApiService) {
                 }
             } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
-                Log.e("RemoteDataSource", e.message.toString())
+                Log.e("RemoteDataSourceMovie", e.message.toString())
             }
         }.flowOn(Dispatchers.IO)
     }
@@ -41,7 +41,7 @@ class RemoteDataSource(private val apiService: ApiService) {
                 }
             } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
-                Log.e("RemoteDataSource", e.message.toString())
+                Log.e("RemoteDataSourceSrcmov", e.message.toString())
             }
         }.flowOn(Dispatchers.IO)
     }
@@ -59,7 +59,7 @@ class RemoteDataSource(private val apiService: ApiService) {
                 }
             } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
-                Log.e("RemoteDataSource", e.message.toString())
+                Log.e("RemoteDataSourceAllTv", e.message.toString())
             }
         }.flowOn(Dispatchers.IO)
     }
@@ -76,7 +76,7 @@ class RemoteDataSource(private val apiService: ApiService) {
                 }
             } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))
-                Log.e("RemoteDataSource", e.message.toString())
+                Log.e("RemoteDataSourcesrcTv", e.message.toString())
             }
         }.flowOn(Dispatchers.IO)
     }

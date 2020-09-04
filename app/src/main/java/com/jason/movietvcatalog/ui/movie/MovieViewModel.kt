@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.jason.movietvcatalog.core.domain.model.Movie
 import com.jason.movietvcatalog.core.domain.usecase.MovieUseCase
+import com.jason.movietvcatalog.core.utils.DataMapper
+import kotlinx.coroutines.flow.map
 
 class MovieViewModel(private val movieUseCase: MovieUseCase) : ViewModel() {
 
@@ -18,6 +20,8 @@ class MovieViewModel(private val movieUseCase: MovieUseCase) : ViewModel() {
     }
 
     var getMovies = Transformations.switchMap(textQuery) { query ->
-        movieUseCase.getAllMovies(query).asLiveData()
+        movieUseCase.getAllMovies(query).map {
+            DataMapper.mapDomainToPresentationMovie(it.data!!)
+        }.asLiveData()
     }
 }

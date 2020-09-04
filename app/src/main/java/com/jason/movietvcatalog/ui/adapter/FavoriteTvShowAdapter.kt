@@ -1,4 +1,4 @@
-package com.jason.movietvcatalog.core.ui
+package com.jason.movietvcatalog.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +13,7 @@ import com.jason.movietvcatalog.core.domain.model.Movie
 import kotlinx.android.synthetic.main.items_movie.view.*
 import java.util.*
 
-class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvshowViewHolder>() {
+class FavoriteTvShowAdapter : RecyclerView.Adapter<FavoriteTvShowAdapter.TvShowViewHolder>() {
 
     private var listData = ArrayList<Movie>()
 
@@ -30,28 +30,27 @@ class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvshowViewHolder>() {
         this.onItemClickCallback = onItemClickCallback
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TvshowViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TvShowViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.items_movie, parent, false)
-        return TvshowViewHolder(view)
+        return TvShowViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: TvshowViewHolder, position: Int) {
-        val tvShowData = listData[position]
-        holder.bind(tvShowData)
-
+    override fun onBindViewHolder(holder: TvShowViewHolder, position: Int) {
+        val tvShow = listData[position]
+        holder.bind(tvShow)
     }
 
-    inner class TvshowViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(tvshow: Movie) {
+    inner class TvShowViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(movie: Movie) {
             with(itemView) {
                 Glide.with(context)
-                    .load(BuildConfig.BASE_URL_IMAGE + tvshow.posterPath)
+                    .load(BuildConfig.BASE_URL_IMAGE + movie.posterPath)
                     .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_loading)
                             .error(R.drawable.ic_error)
                     )
                     .into(img_poster)
-                setOnClickListener { onItemClickCallback?.onItemClicked(tvshow) }
+                setOnClickListener { onItemClickCallback?.onItemClicked(movie) }
             }
         }
     }

@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.jason.movietvcatalog.core.data.source.Resource
-import com.jason.movietvcatalog.core.ui.PeopleAdapter
+import com.jason.movietvcatalog.ui.adapter.PeopleAdapter
 import com.jason.people.R
 import kotlinx.android.synthetic.main.activity_people.*
 import org.koin.android.viewmodel.ext.android.viewModel

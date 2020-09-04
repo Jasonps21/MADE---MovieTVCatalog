@@ -1,4 +1,4 @@
-package com.jason.movietvcatalog.core.ui
+package com.jason.movietvcatalog.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View

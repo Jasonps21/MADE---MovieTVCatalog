@@ -1,4 +1,4 @@
-package com.jason.movietvcatalog.core.ui
+package com.jason.movietvcatalog.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +13,7 @@ import com.jason.movietvcatalog.core.domain.model.Movie
 import kotlinx.android.synthetic.main.items_movie.view.*
 import java.util.*
 
-class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
+class TvShowAdapter : RecyclerView.Adapter<TvShowAdapter.TvshowViewHolder>() {
 
     private var listData = ArrayList<Movie>()
 
@@ -30,27 +30,28 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
         this.onItemClickCallback = onItemClickCallback
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TvshowViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.items_movie, parent, false)
-        return MovieViewHolder(view)
+        return TvshowViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
-        val movie = listData[position]
-        holder.bind(movie)
+    override fun onBindViewHolder(holder: TvshowViewHolder, position: Int) {
+        val tvShowData = listData[position]
+        holder.bind(tvShowData)
+
     }
 
-    inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(movie: Movie) {
+    inner class TvshowViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun bind(tvshow: Movie) {
             with(itemView) {
                 Glide.with(context)
-                    .load(BuildConfig.BASE_URL_IMAGE + movie.posterPath)
+                    .load(BuildConfig.BASE_URL_IMAGE + tvshow.posterPath)
                     .apply(
                         RequestOptions.placeholderOf(R.drawable.ic_loading)
                             .error(R.drawable.ic_error)
                     )
                     .into(img_poster)
-                setOnClickListener { onItemClickCallback?.onItemClicked(movie) }
+                setOnClickListener { onItemClickCallback?.onItemClicked(tvshow) }
             }
         }
     }

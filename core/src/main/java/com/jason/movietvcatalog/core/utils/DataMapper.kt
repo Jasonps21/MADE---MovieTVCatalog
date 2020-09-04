@@ -1,5 +1,6 @@
 package com.jason.movietvcatalog.core.utils
 
+import com.jason.movietvcatalog.core.data.source.Resource
 import com.jason.movietvcatalog.core.data.source.local.entity.ActorEntity
 import com.jason.movietvcatalog.core.data.source.local.entity.MovieEntity
 import com.jason.movietvcatalog.core.data.source.local.entity.PeopleEntity
@@ -10,6 +11,9 @@ import com.jason.movietvcatalog.core.data.source.remote.response.TvResponse
 import com.jason.movietvcatalog.core.domain.model.Actor
 import com.jason.movietvcatalog.core.domain.model.Movie
 import com.jason.movietvcatalog.core.domain.model.People
+import com.jason.movietvcatalog.core.presentation.model.MovieData
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 object DataMapper {
     fun mapResponsesToEntitiesMovie(input: List<MovieResponse>): List<MovieEntity> {
@@ -41,8 +45,8 @@ object DataMapper {
                 it.name,
                 it.poster_path,
                 it.first_air_date,
-                it.episode_run_time?.get(0),
-                it.status,
+                0,
+                "",
                 it.vote_average,
                 "",
                 it.overview,
@@ -73,10 +77,10 @@ object DataMapper {
         input.name,
         input.poster_path,
         input.first_air_date,
-        input.episode_run_time?.get(0),
-        input.status,
+        0,
+        "",
         input.vote_average,
-        input.genres?.joinToString { it.name },
+        "",
         input.overview,
         input.backdrop_path,
         "tvshow"
@@ -85,7 +89,7 @@ object DataMapper {
     fun mapResponsesToEntitiesActor(input: List<ActorResponse>, movieId: Int): List<ActorEntity> {
         val actorList = ArrayList<ActorEntity>()
         input.map {
-            val actor =  ActorEntity(
+            val actor = ActorEntity(
                 0,
                 it.character,
                 it.profile_path,
@@ -100,7 +104,7 @@ object DataMapper {
     fun mapResponsesToEntitiesPeople(input: List<PeopleResponse>): List<PeopleEntity> {
         val peopleList = ArrayList<PeopleEntity>()
         input.map {
-            val people =  PeopleEntity(
+            val people = PeopleEntity(
                 id = it.id,
                 name = it.name,
                 profilePath = it.profilePath,
@@ -179,6 +183,14 @@ object DataMapper {
                 profilePath = it.profilePath,
                 knownForDepartment = it.knownForDepartment,
                 popularity = it.popularity
+            )
+        }
+
+    fun mapDomainToPresentationMovie(input: List<Movie>): List<MovieData> =
+        input.map {
+            MovieData(
+                it.id,
+                it.name
             )
         }
 }

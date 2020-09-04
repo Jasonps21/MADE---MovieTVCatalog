@@ -2,17 +2,22 @@ package com.jason.movietvcatalog.core.data.source.remote.response
 
 import android.os.Parcel
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 
 data class TvResponse(
+    @SerializedName("id")
     var id: String?,
+    @SerializedName("name")
     var name: String?,
+    @SerializedName("poster_path")
     var poster_path: String?,
+    @SerializedName("first_air_date")
     var first_air_date: String?,
-    var episode_run_time: ArrayList<Int>?,
-    var status: String?,
+    @SerializedName("vote_average")
     var vote_average: Float?,
-    var genres: List<GenreResponse>?,
+    @SerializedName("overview")
     var overview: String?,
+    @SerializedName("backdrop_path")
     var backdrop_path: String?
 ): Parcelable {
     constructor(parcel: Parcel) : this(
@@ -20,14 +25,7 @@ data class TvResponse(
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
-        arrayListOf<Int>().apply {
-            parcel.readList(this as List<*>, Integer::class.java.classLoader)
-        },
-        parcel.readString(),
         parcel.readValue(Float::class.java.classLoader) as? Float,
-        arrayListOf<GenreResponse>().apply {
-            parcel.readList(this as List<*>, GenreResponse::class.java.classLoader)
-        },
         parcel.readString(),
         parcel.readString()
     )
@@ -37,7 +35,6 @@ data class TvResponse(
         parcel.writeString(name)
         parcel.writeString(poster_path)
         parcel.writeString(first_air_date)
-        parcel.writeString(status)
         parcel.writeValue(vote_average)
         parcel.writeString(overview)
         parcel.writeString(backdrop_path)

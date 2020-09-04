@@ -16,7 +16,7 @@ import com.jason.movietvcatalog.R
 import com.jason.movietvcatalog.core.BuildConfig
 import com.jason.movietvcatalog.core.data.source.Resource
 import com.jason.movietvcatalog.core.domain.model.Movie
-import com.jason.movietvcatalog.core.ui.DetailMovieAdapter
+import com.jason.movietvcatalog.ui.adapter.DetailMovieAdapter
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.content_detail.*
 import org.koin.android.viewmodel.ext.android.viewModel

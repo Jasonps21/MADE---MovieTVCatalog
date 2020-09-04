@@ -2,7 +2,6 @@
 -keep,includedescriptorclasses class net.sqlcipher.** { *; }
 -keep,includedescriptorclasses interface net.sqlcipher.** { *; }
 
-
 ##---------------Begin: proguard configuration for Gson ----------
 # Gson uses generic type information stored in a class file when working with fields. Proguard
 # removes such information by default, so configure it to keep all of it.
@@ -80,6 +79,9 @@ public *;
 
 # Uncomment for DexGuard only
 #-keepresourcexmlelements manifest/application/meta-data@value=GlideModule
+
+# untuk liat file dan nomor error
+#-keepattributes SourceFile, LineNumberTable
 
 
 ##---------------Begin: proguard configuration for RxJava ----------

@@ -15,7 +15,7 @@ import com.jason.movietvcatalog.R
 import com.jason.movietvcatalog.`interface`.OnItemClickCallback
 import com.jason.movietvcatalog.core.data.source.Resource
 import com.jason.movietvcatalog.core.domain.model.Movie
-import com.jason.movietvcatalog.core.ui.TvShowAdapter
+import com.jason.movietvcatalog.ui.adapter.TvShowAdapter
 import com.jason.movietvcatalog.ui.detail.DetailMovieActivity
 import kotlinx.android.synthetic.main.fragment_tvshow.*
 import org.koin.android.viewmodel.ext.android.viewModel

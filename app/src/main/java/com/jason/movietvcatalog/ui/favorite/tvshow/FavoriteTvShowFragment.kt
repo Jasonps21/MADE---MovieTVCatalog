@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.jason.movietvcatalog.R
 import com.jason.movietvcatalog.`interface`.OnItemClickCallback
 import com.jason.movietvcatalog.core.domain.model.Movie
-import com.jason.movietvcatalog.core.ui.FavoriteTvShowAdapter
+import com.jason.movietvcatalog.ui.adapter.FavoriteTvShowAdapter
 import com.jason.movietvcatalog.ui.detail.DetailMovieActivity
 import kotlinx.android.synthetic.main.fragment_favorite_movie.*
 import kotlinx.android.synthetic.main.fragment_tvshow.*

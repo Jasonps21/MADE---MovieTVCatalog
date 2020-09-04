@@ -1,4 +1,4 @@
-package com.jason.movietvcatalog.core.ui
+package com.jason.movietvcatalog.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +13,7 @@ import com.jason.movietvcatalog.core.domain.model.Movie
 import kotlinx.android.synthetic.main.items_movie.view.*
 import java.util.*
 
-class FavoriteTvShowAdapter : RecyclerView.Adapter<FavoriteTvShowAdapter.TvShowViewHolder>() {
+class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
     private var listData = ArrayList<Movie>()
 
@@ -30,17 +30,17 @@ class FavoriteTvShowAdapter : RecyclerView.Adapter<FavoriteTvShowAdapter.TvShowV
         this.onItemClickCallback = onItemClickCallback
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TvShowViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.items_movie, parent, false)
-        return TvShowViewHolder(view)
+        return MovieViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: TvShowViewHolder, position: Int) {
-        val tvShow = listData[position]
-        holder.bind(tvShow)
+    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
+        val movie = listData[position]
+        holder.bind(movie)
     }
 
-    inner class TvShowViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class MovieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(movie: Movie) {
             with(itemView) {
                 Glide.with(context)
