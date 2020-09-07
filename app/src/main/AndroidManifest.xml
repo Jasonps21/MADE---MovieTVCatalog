@@ -14,15 +14,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:label="@string/favorite_title" android:name=".ui.favorite.FavoriteActivity"/>
+        <activity
+            android:name=".ui.favorite.FavoriteActivity"
+            android:label="@string/favorite_title" />
         <activity
             android:name=".ui.detail.DetailMovieActivity"
             android:label="@string/title_activity_scrolling"
             android:parentActivityName=".ui.home.HomeActivity"
             android:theme="@style/AppTheme.Transparant" />
         <activity
-            android:theme="@style/AppTheme.NoActionBar"
-            android:name=".ui.home.HomeActivity">
+            android:name=".ui.home.HomeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
