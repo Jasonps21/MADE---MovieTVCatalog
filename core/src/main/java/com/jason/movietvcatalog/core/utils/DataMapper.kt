@@ -1,6 +1,5 @@
 package com.jason.movietvcatalog.core.utils
 
-import com.jason.movietvcatalog.core.data.source.Resource
 import com.jason.movietvcatalog.core.data.source.local.entity.ActorEntity
 import com.jason.movietvcatalog.core.data.source.local.entity.MovieEntity
 import com.jason.movietvcatalog.core.data.source.local.entity.PeopleEntity
@@ -12,8 +11,6 @@ import com.jason.movietvcatalog.core.domain.model.Actor
 import com.jason.movietvcatalog.core.domain.model.Movie
 import com.jason.movietvcatalog.core.domain.model.People
 import com.jason.movietvcatalog.core.presentation.model.MovieData
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
 
 object DataMapper {
     fun mapResponsesToEntitiesMovie(input: List<MovieResponse>): List<MovieEntity> {

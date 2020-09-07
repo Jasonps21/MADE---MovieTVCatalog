@@ -22,4 +22,6 @@
     <string name="menu_people">People</string>
     <string name="no_data">Empty Data</string>
     <string name="pencarian">Pencarian</string>
+    <string name="poster">poster</string>
+    <string name="actor">Actor</string>
 </resources>

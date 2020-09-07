@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.jason.movietvcatalog.R
 import com.jason.movietvcatalog.core.BuildConfig
-import com.jason.movietvcatalog.core.R
 import com.jason.movietvcatalog.core.domain.model.Actor
 import kotlinx.android.synthetic.main.items_actor.view.*
 
