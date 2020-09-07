@@ -15,6 +15,10 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="AppTheme.BackgroundDark">
+        <item name="android:background">@color/colorPrimaryDark</item>
+    </style>
+
     <style name="AppTheme.Transparant">
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
