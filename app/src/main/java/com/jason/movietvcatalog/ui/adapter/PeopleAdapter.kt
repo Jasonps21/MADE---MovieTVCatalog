@@ -34,7 +34,7 @@ class PeopleAdapter : RecyclerView.Adapter<PeopleAdapter.PeopleViewHolder>() {
 
     }
 
-    inner class PeopleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class PeopleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(people: People) {
             with(itemView) {
                 Glide.with(context)

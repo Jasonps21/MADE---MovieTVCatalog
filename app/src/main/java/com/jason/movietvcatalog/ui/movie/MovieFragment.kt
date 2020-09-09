@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
@@ -43,7 +42,7 @@ class MovieFragment : Fragment() {
             val movieAdapter = MovieAdapter()
             progress_bar.visibility = View.VISIBLE
             viewModel.setSearchMovie("")
-            viewModel.getMovies.observe(viewLifecycleOwner, Observer { movies ->
+            viewModel.getMovies.observe(viewLifecycleOwner, { movies ->
                 if (movies != null) {
                     when (movies) {
                         is Resource.Loading<*> -> progress_bar.visibility = View.VISIBLE

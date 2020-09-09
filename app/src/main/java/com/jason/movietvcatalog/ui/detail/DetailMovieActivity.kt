@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -26,6 +25,7 @@ class DetailMovieActivity : AppCompatActivity() {
     private val viewModel: DetailViewModel by viewModel()
 
     private var category = 0
+    private var statusFavorite = false
 
     companion object {
         const val EXTRA_MOVIE = "extra_movie"
@@ -45,7 +45,7 @@ class DetailMovieActivity : AppCompatActivity() {
             category = extras.getInt(EXTRA_CATEGORY)
 
             viewModel.setSelectedMovie(movieId)
-            viewModel.actors.observe(this, Observer { actorResource ->
+            viewModel.actors.observe(this, { actorResource ->
                 if (actorResource != null) {
                     when (actorResource) {
                         is Resource.Loading -> progress_bar.visibility = View.VISIBLE
@@ -66,7 +66,7 @@ class DetailMovieActivity : AppCompatActivity() {
             })
             when (category) {
                 R.string.movie ->
-                    viewModel.movieDetail.observe(this, Observer { movieDetail ->
+                    viewModel.movieDetail.observe(this, { movieDetail ->
                         if (movieDetail != null) {
                             when (movieDetail) {
                                 is Resource.Loading -> progress_bar.visibility = View.VISIBLE
@@ -74,6 +74,7 @@ class DetailMovieActivity : AppCompatActivity() {
                                     progress_bar.visibility = View.GONE
                                     populateMovie(movieDetail.data!!)
                                     val state = movieDetail.data!!.isFavorite
+                                    statusFavorite = state
                                     setFavoriteMovie(state)
                                 }
                                 is Resource.Error -> {
@@ -88,7 +89,7 @@ class DetailMovieActivity : AppCompatActivity() {
                         }
                     })
                 R.string.tvshow ->
-                    viewModel.tvShowDetail.observe(this, Observer { tvShowDetail ->
+                    viewModel.tvShowDetail.observe(this, { tvShowDetail ->
                         if (tvShowDetail != null) {
                             when (tvShowDetail) {
                                 is Resource.Loading -> progress_bar.visibility = View.VISIBLE
@@ -96,6 +97,7 @@ class DetailMovieActivity : AppCompatActivity() {
                                     progress_bar.visibility = View.GONE
                                     populateMovie(tvShowDetail.data!!)
                                     val state = tvShowDetail.data!!.isFavorite
+                                    statusFavorite = state
                                     setFavoriteMovie(state)
                                 }
                                 is Resource.Error -> {
@@ -123,9 +125,14 @@ class DetailMovieActivity : AppCompatActivity() {
     private fun populateMovie(movieEntity: Movie) {
         findViewById<CollapsingToolbarLayout>(R.id.toolbar_layout).title = movieEntity.name
         findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
+            if (!statusFavorite) {
+                Snackbar.make(view, getString(R.string.text_favorite), Snackbar.LENGTH_LONG)
+                    .setAction(getString(R.string.head_title_dialog), null).show()
+            } else {
+                Snackbar.make(view, getString(R.string.text_unfavorite), Snackbar.LENGTH_LONG)
+                    .setAction(getString(R.string.head_title_dialog), null).show()
+            }
             viewModel.setFavorite(category)
-            Snackbar.make(view, getString(R.string.text_dialog), Snackbar.LENGTH_LONG)
-                .setAction(getString(R.string.head_title_dialog), null).show()
         }
         Glide.with(this@DetailMovieActivity)
             .load(BuildConfig.BASE_URL_IMAGE + movieEntity.backdrop)

@@ -11,7 +11,8 @@
     <string name="release_year">Release Year</string>
     <string name="status">Status</string>
     <string name="synopsis">Synopsis</string>
-    <string name="text_dialog">Anda berhasil menambah Favorite</string>
+    <string name="text_favorite">Anda berhasil menambah Favorite</string>
+    <string name="text_unfavorite">Anda menghapus film dari daftar Favorite</string>
     <string name="head_title_dialog">Action</string>
     <string name="menu_favorite">Favorite</string>
     <string name="favorite_title">Favorite Movie</string>

@@ -10,7 +10,6 @@ import com.jason.movietvcatalog.core.data.source.remote.response.TvResponse
 import com.jason.movietvcatalog.core.domain.model.Actor
 import com.jason.movietvcatalog.core.domain.model.Movie
 import com.jason.movietvcatalog.core.domain.model.People
-import com.jason.movietvcatalog.core.presentation.model.MovieData
 
 object DataMapper {
     fun mapResponsesToEntitiesMovie(input: List<MovieResponse>): List<MovieEntity> {
@@ -27,7 +26,8 @@ object DataMapper {
                 it.genres?.joinToString { it.name },
                 it.overview,
                 it.backdropPath,
-                "movie"
+                "movie",
+                isFavorite = false
             )
             movieList.add(movie)
         }
@@ -48,7 +48,8 @@ object DataMapper {
                 "",
                 it.overview,
                 it.backdrop_path,
-                "tvshow"
+                "tvshow",
+                isFavorite = false
             )
             tvShowList.add(tvShow)
         }
@@ -66,7 +67,8 @@ object DataMapper {
         input.genres?.joinToString { it.name },
         input.overview,
         input.backdropPath,
-        "movie"
+        "movie",
+        isFavorite = false
     )
 
     fun mapResponseToEntityTvShow(input: TvResponse) = MovieEntity(
@@ -80,7 +82,8 @@ object DataMapper {
         "",
         input.overview,
         input.backdrop_path,
-        "tvshow"
+        "tvshow",
+        isFavorite = false
     )
 
     fun mapResponsesToEntitiesActor(input: List<ActorResponse>, movieId: Int): List<ActorEntity> {
@@ -101,10 +104,11 @@ object DataMapper {
     fun mapResponsesToEntitiesPeople(input: List<PeopleResponse>): List<PeopleEntity> {
         val peopleList = ArrayList<PeopleEntity>()
         input.map {
+            val profilePicture = if (it.profilePath == null) "" else it.profilePath
             val people = PeopleEntity(
                 id = it.id,
                 name = it.name,
-                profilePath = it.profilePath,
+                profilePath = profilePicture,
                 knownForDepartment = it.knownForDepartment,
                 popularity = it.popularity
             )
@@ -180,14 +184,6 @@ object DataMapper {
                 profilePath = it.profilePath,
                 knownForDepartment = it.knownForDepartment,
                 popularity = it.popularity
-            )
-        }
-
-    fun mapDomainToPresentationMovie(input: List<Movie>): List<MovieData> =
-        input.map {
-            MovieData(
-                it.id,
-                it.name
             )
         }
 }

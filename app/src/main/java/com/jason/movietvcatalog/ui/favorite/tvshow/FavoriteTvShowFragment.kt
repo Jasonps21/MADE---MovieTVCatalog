@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.jason.movietvcatalog.R
 import com.jason.movietvcatalog.`interface`.OnItemClickCallback
@@ -33,7 +32,7 @@ class FavoriteTvShowFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         if (activity != null) {
             val tvShowAdapter = FavoriteTvShowAdapter()
-            viewModel.getTvShowsFavorite().observe(viewLifecycleOwner, Observer { tvShows ->
+            viewModel.getTvShowsFavorite().observe(viewLifecycleOwner, { tvShows ->
                 tvShowAdapter.setData(tvShows)
                 tvShowAdapter.notifyDataSetChanged()
                 view_empty.visibility = if (tvShows.isNotEmpty()) View.GONE else View.VISIBLE

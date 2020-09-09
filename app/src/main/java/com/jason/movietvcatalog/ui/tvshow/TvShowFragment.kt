@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
@@ -43,7 +42,7 @@ class TvShowFragment : Fragment() {
             val tvshowAdapter = TvShowAdapter()
             progress_bar.visibility = View.VISIBLE
             viewModel.setSearchTv("")
-            viewModel.getTvshow.observe(viewLifecycleOwner, Observer { tvShows ->
+            viewModel.getTvshow.observe(viewLifecycleOwner, { tvShows ->
                 if (tvShows != null) {
                     when (tvShows) {
                         is Resource.Loading -> progress_bar.visibility = View.VISIBLE

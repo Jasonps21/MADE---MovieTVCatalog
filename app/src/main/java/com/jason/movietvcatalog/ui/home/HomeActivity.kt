@@ -38,7 +38,8 @@ class HomeActivity : AppCompatActivity() {
             setOf(
                 R.id.nav_movie,
                 R.id.nav_tv_show,
-                R.id.nav_people
+                R.id.nav_people,
+                R.id.nav_favorite
             ),
             drawer_layout
         )

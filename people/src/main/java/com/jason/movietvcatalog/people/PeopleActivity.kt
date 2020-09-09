@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.jason.movietvcatalog.core.data.source.Resource
 import com.jason.movietvcatalog.ui.adapter.PeopleAdapter
@@ -26,7 +25,7 @@ class PeopleActivity : AppCompatActivity() {
 
         val peopleAdapter = PeopleAdapter()
         progress_bar.visibility = View.VISIBLE
-        viewModel.getPeople().observe(this, Observer{ peoples ->
+        viewModel.getPeople().observe(this, { peoples ->
             if (peoples != null){
                 when(peoples){
                     is Resource.Loading -> progress_bar.visibility = View.VISIBLE

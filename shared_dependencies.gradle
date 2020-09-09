@@ -4,7 +4,7 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
     implementation "androidx.legacy:legacy-support-v4:$legacy_support_version"
     testImplementation "junit:junit:$junitVersion"
-    androidTestImplementation "androidx.test.ext:junit:$androidx_junit_version"
+    androidTestImplementation "androidx.test.ext:junit:1.1.2"
     implementation "androidx.multidex:multidex:$multidex_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel:$archLifecycleVersion"
 
@@ -13,7 +13,7 @@ dependencies {
     implementation "com.google.android.material:material:$materialVersion"
     implementation "com.github.bumptech.glide:glide:$glideVersion"
 
-    //koin
+    //Koin
     implementation "org.koin:koin-core:$koin_version"
     implementation "org.koin:koin-android:$koin_version"
     implementation "org.koin:koin-android-viewmodel:$koin_version"
